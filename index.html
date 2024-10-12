@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffet - MA Eventos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Buffet - MA Eventos</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Sobre Nós</h2>
+        <p>Nosso buffet oferece as melhores opções para o seu evento. Com qualidade e sabor incomparáveis!</p>
+    </section>
+
+    <section id="services">
+        <h2>Nossos Serviços</h2>
+        <div class="service">
+            <h3><a href="servico-casamento.html">Casamentos</a></h3>
+            <p>Servimos uma variedade de pratos especiais para tornar seu casamento inesquecível.</p>
+        </div>
+        <div class="service">
+            <h3><a href="servico-aniversario.html">Festas de Aniversário</a></h3>
+            <p>Realizamos festas personalizadas com temas variados e cardápios deliciosos.</p>
+        </div>
+        <div class="service">
+            <h3><a href="servico-corporativo.html">Eventos Corporativos</a></h3>
+            <p>Oferecemos soluções completas para eventos de empresas, com serviços personalizados.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Buffet - MA Eventos</p>
+    </footer>
+
+    <!-- Ícone de contato no canto esquerdo -->
+    <!-- Ícone de contato com bonequinho e texto -->
+<div id="contact-icon">
+    <img src="C:\Users\adm\Desktop\Projetos\Buffet MA\what.webp" alt="Ícone de Contato">
+    <span>Faça seu orçamento</span>
+</div>
+
+<!-- Formulário de contato flutuante -->
+<div id="contact-form-container" class="hidden">
+    <form id="contact-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required>
+        <label for="message">Mensagem:</label>
+        <textarea id="message" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+/* Estilos para o corpo e a estrutura principal */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+}
+
+/* Ícone de contato flutuante no canto inferior direito */
+/* Estilizando o ícone de contato flutuante com o bonequinho e texto */
+#contact-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Posição no canto inferior direito */
+    background-color: #25d366;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#contact-icon img {
+    width: 40px; /* Tamanho do bonequinho */
+    height: 40px;
+    margin-right: 10px; /* Espaço entre o bonequinho e o texto */
+}
+
+#contact-icon span {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Formulário flutuante no canto inferior direito */
+#contact-form-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px; /* Mantém o formulário no lado direito */
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    display: none; /* Escondido inicialmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#contact-form-container input,
+#contact-form-container textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#contact-form-container button {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#contact-form-container button:hover {
+    background-color: #1eb359;
+}
+
+/* Classe para esconder o formulário */
+.hidden {
+    display: none;
+}
+
+
+</style>
+<script>
+// Exibe o formulário de contato quando o ícone for clicado
+document.getElementById('contact-icon').addEventListener('click', function() {
+    const formContainer = document.getElementById('contact-form-container');
+    formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
+});
+
+// Ao enviar o formulário, redireciona para o WhatsApp
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+
+    // Formata a URL do WhatsApp com nome e mensagem
+    const whatsappUrl = `https://wa.me/5511913123429?text=Nome:%20${encodeURIComponent(name)}%0AMensagem:%20${encodeURIComponent(message)}`;
+
+    // Abre o WhatsApp em uma nova aba
+    window.open(whatsappUrl, '_blank');
+});
+</script>
